@@ -1,22 +1,26 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 55, in script
-    jump scene
-ScriptError: could not find label 'scene'.
+  File "game/script.rpy", line 76, in script
+    $ moral_points+=1
+  File "game/script.rpy", line 76, in <module>
+    $ moral_points+=1
+NameError: name 'moral_points' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 55, in script
-    jump scene
-  File "D:\renpy-8.3.2-sdk\renpy\ast.py", line 1699, in execute
-    rv = renpy.game.script.lookup(target)
-  File "D:\renpy-8.3.2-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'scene'.
+  File "game/script.rpy", line 76, in script
+    $ moral_points+=1
+  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\ast.py", line 821, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\python.py", line 1178, in py_exec_bytecode
+    exec(bytecode, globals, locals)
+  File "game/script.rpy", line 76, in <module>
+    $ moral_points+=1
+NameError: name 'moral_points' is not defined
 
-Windows-10-10.0.22631 AMD64
-Ren'Py 8.3.2.24090901
+Windows-10-10.0.19045 AMD64
+Ren'Py 8.3.3.24111502
 Suar Binar 1.0
-Mon Dec  2 13:03:47 2024
+Wed Dec  4 03:04:48 2024

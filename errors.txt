@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 41: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    menu:
-    ^
+File "game/script.rpy", line 151: end of line expected.
+    scene bg roads with fade at zoom 1.2
+                             ^
 
-Ren'Py Version: Ren'Py 8.3.2.24090901
-Mon Dec  2 10:44:24 2024
+Ren'Py Version: Ren'Py 8.3.3.24111502
+Wed Dec  4 03:12:11 2024
