@@ -69,7 +69,7 @@ label choice_2a:
             #jump choice_2b
 
 #label choice_1b:
-    #p ""
+    #p "" ayam
 
     scene pasar
     menu:
