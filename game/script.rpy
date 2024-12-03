@@ -30,8 +30,8 @@ image ibu angry = "images/chara/ibu/placeholder-ibu.png"
 # Polisi
 image polisi neutral = im.Scale("images/chara/polisi/polisi neutral.png", 500, 800)
 # Ibu-ibu Pasar
-image ibu_pasar 1 = "images/chara/ibu pasar/ibu pasar 1"
-image ibu_pasar 2 = "images/chara/ibu pasar/ibu pasar 2"
+image ibu_pasar 1 = "images/chara/ibu pasar/ibu pasar 1.png"
+image ibu_pasar 2 = "images/chara/ibu pasar/ibu pasar 2.png"
 
 # Scene Bg
 image bg kamar pagi = "images/bg/bg kamar pagi.png"
@@ -189,12 +189,20 @@ label teras_scene:
 label pasar_scene:
     scene bg pasar with fade
 
+    transform move_right:
+        xpos 0.8
+        ypos 0.0
+
+    transform move_center:
+        xpos 0.5
+        ypos 0.5
+
     "{i}Sesampainya di lokasi, Putri tidak sengaja mendengar percakapan antara ibu-ibu yang juga berbelanja sayur{/i}"
 
-    show ibu_pasar 1 at right with moveinleft
+    show ibu_pasar 1 at left with moveinright
     s1 "Kamu inget ga, Bu? Si Ibu yang jualan skincare itu, yang dulunya tinggal di komplek sebelah, kemarin beli barang mahal, katanya aksesoris bermerek atau apalah itu. Padahal katanya lagi susah, kemaren tetangga saya mau minjem 100 katanya lagi ga ada duit. Heran deh, dari mana tuh duitnya"
     
-    show ibu_pasar 2 at left with moveinright
+    show ibu_pasar 2 at right with moveinleft
     s2 "Iya, malah saya dengar tuh, anaknya saja sampai kerja sana sini buat cari uang sendiri biar bisa kuliah. Emangnya ibunya ga mau biayain kuliah anak sendiri?"
 
     "{i}Putri sekilas teringat dengan ibu pacarnya, Reza. Beliau juga berjualan skincare dan sering memamerkan harta yang ia miliki. Mungkin ia perlu berbicara dengan Reza terkait ini.{/i}"
@@ -226,7 +234,7 @@ label pasar_scene:
         "Tegur ibu-ibu itu":
             $ courage_point+=1
 
-            show ibu_pasar 2 at xpos 0.5 ypos 0.8
+            show ibu_pasar 2 at move_right
             show side putri conflicted at left with moveinright
 
             "{i}Putri berhenti sejenak, merasa tidak nyaman dengan ibu-ibu yang bergosip. Ia menoleh ke arah mereka dan memberanikan diri berbicara{/i}"
@@ -248,7 +256,7 @@ label pasar_scene:
             hide ibu_pasar 2
             hide side putri conflicted
 
-            show side putri cry at xpos 0.5 ypos 0.5
+            show side putri cry at move_center
             p "Aku tahu aku benar, tapi kenapa rasanya malah salah? Kadang norma kesopanan bikin susah bilang sesuatu yang penting. Mungkin aku harus belajar cara yang lebih baik untuk bicara ke orang tua..."
             hide side putri cry
 

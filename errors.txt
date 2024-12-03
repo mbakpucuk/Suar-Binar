@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 151: end of line expected.
-    scene bg roads with fade at zoom 1.2
+File "game/script.rpy", line 229: end of line expected.
+    show ibu_pasar 2 at xpos 0.5 ypos 0.8
                              ^
 
+File "game/script.rpy", line 251: end of line expected.
+    show side putri cry at xpos 0.5 ypos 0.5
+                                ^
+
 Ren'Py Version: Ren'Py 8.3.3.24111502
-Wed Dec  4 03:12:11 2024
+Wed Dec  4 03:49:05 2024
