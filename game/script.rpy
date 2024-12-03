@@ -86,22 +86,5 @@ label choice_2c:
 
     # This ends the game.
 
-    scene dapur
-    p_nvl "Hey! Welcome to the demo Eileen!"
-    r_nvl "who's this?"
-    p_nvl "haha, silly you"
-    p_nvl "We talked about showing off the phone the other day, remember?"
-    r_nvl "it's today?"
-    r_nvl "oops sorry night', I forgot"
-    p_nvl "No problem, you must be quite busy!"
-    p_nvl "congrat on showing the emoji tho"
-    r_nvl "Nothing magical, it's just a :)"
-    p_nvl "But since we use regular renpy, we can use the same principle to send pictures!"
-    r_nvl "Right! Let me take a selfie"
-    r_nvl "A bit low res but hey, the pic has to fit the screen somehow"
-    
-    p_nvl "Thank you Eileen for doing this demo with me!"
-    r_nvl "no problem, I hope people will make good use of it!"
-    r_nvl "byyee"
 
     return
