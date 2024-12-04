@@ -2,9 +2,13 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 41: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
-    menu:
-    ^
+File "game/script.rpy", line 229: end of line expected.
+    show ibu_pasar 2 at xpos 0.5 ypos 0.8
+                             ^
 
-Ren'Py Version: Ren'Py 8.3.2.24090901
-Mon Dec  2 10:44:24 2024
+File "game/script.rpy", line 251: end of line expected.
+    show side putri cry at xpos 0.5 ypos 0.5
+                                ^
+
+Ren'Py Version: Ren'Py 8.3.3.24111502
+Wed Dec  4 03:49:05 2024
