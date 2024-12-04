@@ -79,7 +79,7 @@ label choice_2a:
             jump choice_2c
 
 label choice_1c:
-    p ""
+    p "huhu"
 
 label choice_2c:
 
