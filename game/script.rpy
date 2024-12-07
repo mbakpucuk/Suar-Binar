@@ -84,6 +84,74 @@ label choice_1c:
 label choice_2c:
 
 
+
+    scene pasar
+    menu:
+        "Biarkan Reza membayar":
+            jump choice_1d
+        "Bayar makanannya":
+            jump choice_2d
+
+
+label choice_1d:
+    p "."
+
+
+
+    transform alpha_dissolve:
+    alpha 0.0
+    linear 0.5 alpha 1.0
+    on hide:
+        linear 0.5 alpha 0
+    # This is to fade the bar in and out, and is only required once in your script
+
+init: ### just setting variables in advance so there are no undefined variable problems
+    $ timer_range = 0
+    $ timer_jump = 0
+    $ time = 0
+
+screen countdown:
+    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)]) 
+        ### ^this code decreases variable time by 0.01 until time hits 0, at which point, the game jumps to label timer_jump (timer_jump is another variable that will be defined later)
+
+    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve 
+        # ^This is the timer bar.
+        
+label questiontime1:
+    
+    label menu1:
+        $ time = 3                                     ### set variable time to 3
+        $ timer_range = 3                              ### set variable timer_range to 3 (this is for purposes of showing a bar)
+        $ timer_jump = 'menu1_slow'                    ### set where you want to jump once the timer runs out
+        show screen countdown                          ### call and start the timer
+
+        menu:
+            "Menyerah":
+                hide screen countdown
+                jump choice_1e
+            "Bertahan":
+                hide screen countdown
+                jump choice_2e
+
+    label menu1_slow:
+            jump choice_1e
+
+
+        menu:
+            "Tidak setuju":
+                jump choice_1f
+            "Setuju":
+                jump choice_2f
+
+label choice_1f:
+
+        menu:
+            "Kembali":
+                jump choice_1g
+            "Cari dompet":
+                jump choice_2g
+
+
     # This ends the game.
 
 
