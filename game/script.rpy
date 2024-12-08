@@ -32,12 +32,14 @@ label start:
     i "Putri, bangun nak, ini udah siang lho!"
     hide ibu
 
-    "Seketika Putri terbangun. Kepalanya sedikit pusing karena dibangunkan dengan tiba-tiba. Faktanya, jam dinding di hadapan Putri menunjukkan pukul 6 lewat, masih pagi sekali untuk bangun di hari libur seperti ini."
+    "Seketika Putri terbangun. Kepalanya sedikit pusing karena dibangunkan dengan tiba-tiba."
+    "Faktanya, jam dinding di hadapan Putri menunjukkan pukul 6 lewat, masih pagi sekali untuk bangun di hari libur seperti ini."
     "Dengan malas, Putri melangkah untuk membukakan pintu."
 
     p neutral "Ada apa, Ibu?"
     show ibu 
-    i "Ibu mau bikin nasi kuning buat sarapan, tapi Ibu lupa telurnya sudah habis. Kamu tolong beliin ke pasar, ya, sekalian bahan-bahan lain buat stok seminggu ke depan."
+    i "Ibu mau bikin nasi kuning buat sarapan, tapi Ibu lupa telurnya sudah habis."
+    i "Kamu tolong beliin ke pasar, ya, sekalian bahan-bahan lain buat stok seminggu ke depan."
     "Putri terdiam sejenak."
     menu:
         "Patuhi ibu":
@@ -52,24 +54,45 @@ label choice_1a:
     p smile "Oke, aku harus beli apa aja nih, Bu?"
     i "Ini udah ibu tulis biar kamu gak lupa, sana kamu siap-siap dulu."
     p "Baik, Bu."
+    "Putri segera mengambil jaketnya dan mengenakannya." 
+    "Setelah menerima daftar belanjaan dari Ibu dan menyalaminya untuk berpamitan, Ia melangkah keluar rumah dan menyalakan motornya."
+    i "Putri, Ini helmnya jangan lupa dipakai ya!"
+    p "Oh iya, makasih ya Bu."
+    i "Iya, sama-sama. Hati-hati dijalan ya."
+    p "Siap!"
+    "Putri berpamitan dengan Ibunya dan ia pun mengendarai motornya menuju pasar."
+    jump pasaran
 
 label choice_2a:
     p "Ih, Bu. Kan masih pagi banget. Kenapa Ibu nggak beli sendiri aja atau minta Ayah? Aku masih ngantuk, tau..."
-    i "Putri! Cara kamu ngomong ke Ibu itu nggak sopan. Kamu pikir Ibu ini siapa, nyuruh-nyuruh kamu tanpa alasan? Ibu bangun pagi-pagi masak buat kalian semua, dan kamu malah membantah?!"
+    i "Putri! Cara kamu ngomong ke Ibu itu nggak sopan. Kamu pikir Ibu ini siapa, nyuruh-nyuruh kamu tanpa alasan?"
+    i "Ibu bangun pagi-pagi masak buat kalian semua, dan kamu malah membantah?!"
     p "Tapi, Bu..."
     i "Nggak ada tapi-tapian! Segera berangkat ke pasar. Ibu nggak mau denger alasan lagi!"
     p "Iya, iya. Aku berangkat."
     "Putri mengambil jaketnya dan berjalan keluar rumah dengan wajah kesal. Selagi melangkah, ia melirik helm yang sedang tergantung. Di benaknya terpikirkan apa ia harus mengenakannya atau tidak."
 
-#scene teras
-    #menu:
-        #"Gunakan helm"
-            #jump choice_1b
-        #"Tidak menggunakan helm"
-            #jump choice_2b
+    scene teras
+    menu:
+        "Gunakan helm":
+            jump choice_1b
+        "Tidak menggunakan helm":
+            jump choice_2b
 
-#label choice_1b:
-    #p "" ayam
+label choice_1b:
+    "Setelah memakai jaket, Putri mengambil helm dari gantungan dan mengenakannya sebelum ke menyalakan motornya."
+    p "(Pakai helm itu penting. Nggak cuma soal aturan, tapi buat keselamatan.)"
+    p "(Kalau terjadi apa-apa di jalan, setidaknya kepala terlindungi.)"
+    "Ia mengecek kembali tali helm untuk memastikan terpasang dengan benar."
+    p "(Kadang orang mikir dekat nggak perlu helm, tapi kecelakaan nggak lihat jarak. Lebih baik aman daripada menyesal.)"
+    "Putri menyalakan motor dan melaju ke pasar dengan hati-hati, memastikan dirinya tetap patuh pada aturan lalu lintas."
+    jump pasaran
+
+label choice_2b:
+    p "(Ah, cuma ke pasar, nggak jauh ini. Lagian nggak ada polisi juga, aman kok.)"
+    
+    
+label pasaran:
 
     scene pasar
     menu:
@@ -98,61 +121,60 @@ label choice_1d:
 
 
 
-    transform alpha_dissolve:
-    alpha 0.0
-    linear 0.5 alpha 1.0
-    on hide:
-        linear 0.5 alpha 0
+    #transform alpha_dissolve:
+    #alpha 0.0
+    #linear 0.5 alpha 1.0
+    #on hide:
+        #linear 0.5 alpha 0
     # This is to fade the bar in and out, and is only required once in your script
 
-init: ### just setting variables in advance so there are no undefined variable problems
-    $ timer_range = 0
-    $ timer_jump = 0
-    $ time = 0
+#init: ### just setting variables in advance so there are no undefined variable problems
+    #$ timer_range = 0
+    #$ timer_jump = 0
+    #$ time = 0
 
-screen countdown:
-    timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)]) 
+#screen countdown:
+    #timer 0.01 repeat True action If(time > 0, true=SetVariable('time', time - 0.01), false=[Hide('countdown'), Jump(timer_jump)]) 
         ### ^this code decreases variable time by 0.01 until time hits 0, at which point, the game jumps to label timer_jump (timer_jump is another variable that will be defined later)
 
-    bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve 
+    #bar value time range timer_range xalign 0.5 yalign 0.9 xmaximum 300 at alpha_dissolve 
         # ^This is the timer bar.
         
-label questiontime1:
+#label questiontime1:
     
-    label menu1:
-        $ time = 3                                     ### set variable time to 3
-        $ timer_range = 3                              ### set variable timer_range to 3 (this is for purposes of showing a bar)
-        $ timer_jump = 'menu1_slow'                    ### set where you want to jump once the timer runs out
-        show screen countdown                          ### call and start the timer
+    #label menu1:
+        #$ time = 3                                     ### set variable time to 3
+        #$ timer_range = 3                              ### set variable timer_range to 3 (this is for purposes of showing a bar)
+        #$ timer_jump = 'menu1_slow'                    ### set where you want to jump once the timer runs out
+        #show screen countdown                          ### call and start the timer
 
-        menu:
-            "Menyerah":
-                hide screen countdown
-                jump choice_1e
-            "Bertahan":
-                hide screen countdown
-                jump choice_2e
+        #menu:
+            #"Menyerah":
+                #hide screen countdown
+                #jump choice_1e
+            #"Bertahan":
+                #hide screen countdown
+                #jump choice_2e
 
-    label menu1_slow:
-            jump choice_1e
-
-
-        menu:
-            "Tidak setuju":
-                jump choice_1f
-            "Setuju":
-                jump choice_2f
-
-label choice_1f:
-
-        menu:
-            "Kembali":
-                jump choice_1g
-            "Cari dompet":
-                jump choice_2g
+    #label menu1_slow:
+            #jump choice_1e
 
 
-    # This ends the game.
+        #menu:
+            #"Tidak setuju":
+                #jump choice_1f
+            #"Setuju":
+                #jump choice_2f
+
+#label choice_1f:
+
+        #menu:
+            #"Kembali":
+                #jump choice_1g
+            #"Cari dompet":
+                #jump choice_2g
 
 
-    return
+    
+
+return
