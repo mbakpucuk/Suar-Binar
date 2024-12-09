@@ -1,22 +1,32 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
 While running game code:
-  File "game/script.rpy", line 55, in script
-    jump scene
-ScriptError: could not find label 'scene'.
+  File "game/script.rpy", line 229, in script
+    show ibu_pasar 2 at align(0.5, 0.8)
+  File "game/script.rpy", line 229, in <module>
+    show ibu_pasar 2 at align(0.5, 0.8)
+NameError: name 'align' is not defined
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "game/script.rpy", line 55, in script
-    jump scene
-  File "D:\renpy-8.3.2-sdk\renpy\ast.py", line 1699, in execute
-    rv = renpy.game.script.lookup(target)
-  File "D:\renpy-8.3.2-sdk\renpy\script.py", line 1103, in lookup
-    raise ScriptError("could not find label '%s'." % str(original))
-ScriptError: could not find label 'scene'.
+  File "game/script.rpy", line 229, in script
+    show ibu_pasar 2 at align(0.5, 0.8)
+  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\ast.py", line 1111, in execute
+    show_imspec(self.imspec, atl=getattr(self, "atl", None))
+  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\ast.py", line 1070, in show_imspec
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\ast.py", line 1070, in <listcomp>
+    at_list = [ renpy.python.py_eval(i) for i in at_list ]
+  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\python.py", line 1209, in py_eval
+    return py_eval_bytecode(code, globals, locals)
+  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\python.py", line 1202, in py_eval_bytecode
+    return eval(bytecode, globals, locals)
+  File "game/script.rpy", line 229, in <module>
+    show ibu_pasar 2 at align(0.5, 0.8)
+NameError: name 'align' is not defined
 
-Windows-10-10.0.22631 AMD64
-Ren'Py 8.3.2.24090901
+Windows-10-10.0.19045 AMD64
+Ren'Py 8.3.3.24111502
 Suar Binar 1.0
-Mon Dec  2 13:03:47 2024
+Wed Dec  4 03:54:50 2024
