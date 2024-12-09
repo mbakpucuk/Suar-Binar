@@ -1,11 +1,11 @@
-﻿define p = Character("Putri", color="#000000", image='putri')
-define r = Character("Reza", color="#000000", image='reza')
-define i = Character("Ibu", color="#000000", image='ibu')
-define s = Character("Ibu-ibu Pasar", color="#000000", image='ibupasar')
-define o = Character("Polisi", color="#000000", image='polisi')
-define k = Character("Bapak Kos", color="#000000", image='bapakkos')
-define a = Character("???", color="#000000", image='binar')
-define b = Character("Binar", color="#000000", image='binar')
+﻿define p = Character("Putri", color="#52445b", image='putri')
+define r = Character("Reza", color="#52445b", image='reza')
+define i = Character("Ibu", color="#52445b", image='ibu')
+define s = Character("Ibu-ibu Pasar", color="#52445b", image='ibupasar')
+define o = Character("Polisi", color="#52445b", image='polisi')
+define k = Character("Bapak Kos", color="#52445b", image='bapakkos')
+define a = Character("???", color="#52445b", image='binar')
+define b = Character("Binar", color="#52445b", image='binar')
 
 image side putri happy = im.Scale("images/side putri happy.png", 657, 855, xoffset=-180, yoffset=100)
 image side putri mikir = im.Scale("images/side putri mikir.png", 657, 855, xoffset=-180, yoffset=100)
@@ -23,7 +23,7 @@ define config.nvl_adv_transition = Dissolve(0.3)
 
 label start:
 
-    scene dapur
+    scene bg kamar pagi
     play sound "pagihari.mp3"
     "Embun pagi yang dingin tidak bisa mengganggu tidur nyenyak Putri yang sedang tergulung di dalam selimutnya, justru hawa dingin itu membuatnya semakin tenggelam dalam pulasnya tidur di hari Minggu."
     "Para embun sudah mulai beranjak, digantikan oleh sinar matahari pagi yang berusaha menembus tirai kamar Putri."
@@ -90,11 +90,38 @@ label choice_1b:
 
 label choice_2b:
     p "(Ah, cuma ke pasar, nggak jauh ini. Lagian nggak ada polisi juga, aman kok.)"
-    
-    
+    "Ia menyalakan motor dan melaju."
+    "Di tengah perjalanan, tiba-tiba seorang polisi menghentikannya di pos jalan."
+    show polisi
+    o "Selamat pagi. Kenapa Anda tidak memakai helm? Mohon ditunjukkan SIM dan STNK-nya."
+    p "Aduh, Pak. Maaf, tadi saya cuma mau ke pasar, jadi nggak kepikiran pakai helm."
+    o "Mau ke mana pun, tetap harus pakai helm. Ini soal keselamatan, bukan soal jarak."
+    o "Saya akan menilang Anda."
+    p "Aduh, Pak. Kalau bisa diselesaikan di sini aja, nggak usah pakai tilang. Saya nggak mau ribet urus tilang ke kantor polisi."
+    o "Aturannya jelas. Kalau melanggar, ya ada konsekuensinya."
+    "Putri kemudian mengambil uang dari dompetnya dan berbicara dengan pelan."
+    p "Pak, ini aja ya. Biar cepat selesai. Saya nggak mau buang waktu. Mohon pengertiannya."
+    "Polisi tersebut tampak ragu, tetapi akhirnya ia menerima uang tersebut."
+    o "Baiklah, hati-hati dijalan."
+    p "Iya, Pak. Terima kasih, ya."
+    "Mereka berdua tahu apa yang telah dilakukan salah. Namun bukankah hal tersebut sudah wajar dilakukan di lingkungan sekitarnya?" 
+    "Terjadi perdebatan kecil di kepala Putri. Namun ia memutuskan untuk mengabaikannya dan melanjutkan tugasnya di pasar."
+    jump pasaran
+
 label pasaran:
 
     scene pasar
+    #play sound 
+    "Sesampainya di lokasi, Putri tidak sengaja mendengar percakapan antara ibu-ibu yang juga berbelanja sayur."
+    show ibupasar at left
+    show ibupasar at right
+    s "Kamu inget ga, Bu? Si Ibu yang jualan skincare itu, yang dulunya tinggal di komplek sebelah, kemarin beli barang mahal, katanya aksesoris bermerek atau apalah itu."
+    s "Padahal katanya lagi susah, kemaren tetangga saya mau minjem 100 katanya lagi ga ada duit. Heran deh, dari mana tuh duitnya."
+    s "Iya, malah saya dengar tuh, anaknya saja sampai kerja sana sini buat cari uang sendiri biar bisa kuliah."
+    s "Emangnya ibunya ga mau biayain kuliah anak sendiri?"
+    "Putri sekilas teringat dengan ibu pacarnya, Reza. Beliau juga berjualan skincare dan sering memamerkan harta yang ia miliki."
+    "Mungkin ia perlu berbicara dengan Reza terkait ini."
+
     menu:
         "Diam saja":
             jump choice_1c
@@ -102,13 +129,49 @@ label pasaran:
             jump choice_2c
 
 label choice_1c:
-    p "huhu"
+    "Putri memilih diam ketika mendengar gosip tersebut, melanjutkan belanja dan langsung bergegas keluar dari keramaian."
+    p "(Kenapa sih mereka ngomongin orang kayak gitu? Rasanya nggak enak banget didengar.)"
+    p "(Tapi aku juga nggak berani bilang apa-apa. Mereka kan lebih tua dariku.)"
+    show jalan
+    "Putri menyalakan motornya dan mulai perjalanan pulang. Angin pagi membelai lembut wajahnya, tetapi pikirannya tetap gelisah."
+    p "(Harusnya aku ngomong sesuatu tadi. Tapi gimana caranya ngomong ke orang yang lebih tua tanpa bikin mereka marah atau tersinggung? Aku cuma diem aja, rasanya salah juga...)"
+    "Ia melaju pelan, merenungkan kejadian tersebut."
+    p "(Kalau aku terus diem kayak gini, mereka bakal ngerasa nggak salah. Tapi kalau ngomong sembarangan, malah bisa bikin masalah. Aduh, bingung...)"
+    "Dengan pikiran yang bercampur aduk, Putri akhirnya sampai di rumah, tapi hatinya masih merasa belum lega dengan kejadian di pasar tadi."
+    jump rumahkamar
+
 
 label choice_2c:
+    "Putri berhenti sejenak, merasa tidak nyaman dengan ibu-ibu yang bergosip. Ia menoleh ke arah mereka dan memberanikan diri berbicara."
+    p "Maaf, Bu, bukannya saya sok tahu, tapi sepertinya nggak baik kalau kita membicarakan orang lain seperti ini, apalagi hanya dapat informasi dari sumber yang tidak jelas. Kita kan nggak tahu keadaan sebenarnya."
+    "Ibu-ibu itu langsung menghentikan obrolan mereka, menatap Putri dengan ekspresi terkejut dan sedikit tersinggung."
+    s "Heh, anak muda. Kamu ini siapa, ya? Baru di sini kok sudah mengatur-ngatur."
+    s "Anak muda itu harus tahu sopan santun kalau bicara sama orang tua."
+    s "Iya, jangan sembarangan bicara. Kamu ini ikut campur urusan orang, deh."
+    s "Anak muda zaman sekarang memang ga ada sopan santun sama orang tua, kurang ajar."
+    "Putri ingin menjawab, tetapi bingung bagaimana caranya agar tetap sopan."
+    p "Saya minta maaf kalau kata-kata saya tadi kurang sopan, Bu. Saya hanya berpikir, kalau kita nggak tahu yang sebenarnya, lebih baik kita tidak membicarakan orang lain."
+    p "Lagi pula, saya yakin maksud Ibu-Ibu juga bukan untuk hal buruk, kan?"
+    "Mereka berdua mengabaikan kata-kata Putri yang akhirnya memutuskan untuk menyelesaikan belanjanya dan pergi."
+    show jalan
+    "Dalam perjalanan pulang, Putri merenungkan kejadian tadi."
+    p "(Aku tahu aku benar, tapi kenapa rasanya malah salah?)"
+    p "(Kadang norma kesopanan bikin susah bilang sesuatu yang penting. Mungkin aku harus belajar cara yang lebih baik untuk bicara ke orang tua...)"
+    "Putri melanjutkan perjalanan dengan perasaan campur aduk, masih mencoba memahami apa yang baru saja terjadi."
+    jump rumahkamar
 
 
-
-    scene pasar
+label rumahkamar:
+    scene bg kamar pagi
+    "Sesampainya di rumah, Putri langsung membuka handphonenya untuk menghubungi Reza."
+    p_nvl "Reza, hari ini kamu ada waktu luang nggak?"
+    r_nvl "Emangnya kenapa, Put, kamu nanya kayak gitu?"
+    p_nvl "Aku pengen kita ketemu, aku kangen deh ngobrol sama kamu, udah lama juga kita nggak ketemu."
+    r_nvl "Ayo, aku juga kangen pengen liat wajah cantik kamu, kita mau ketemu dimana?"
+    p_nvl "Hmm gombal, gimana kalau kita ketemu di kafe kesukaanku?"
+    r_nvl "Boleh, aku siap-siap dulu ya, nanti aku jemput kamu."
+    
+    scene cafe
     menu:
         "Biarkan Reza membayar":
             jump choice_1d
