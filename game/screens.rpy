@@ -359,9 +359,40 @@ screen main_menu():
     frame:
         style "main_menu_frame"
 
+    imagebutton:
+        idle "gui/mm_start_idle.png"
+        hover "gui/mm_start_hover.png"
+        action Start()
+        align (0, 0.5)
+        
+    imagebutton:
+        idle "gui/mm_about_idle.png"
+        hover "gui/mm_about_hover.png"
+        action ShowMenu("about")
+        align (0.05, 0.6)
+
+    imagebutton:
+        idle "gui/mm_save_idle.png"
+        hover "gui/mm_save_hover.png"
+        action ShowMenu("load")
+        align (0.1, 0.7)
+
+    imagebutton:
+        idle "gui/mm_options_idle.png"
+        hover "gui/mm_options_hover.png"
+        action ShowMenu("preferences")
+        align (0.15, 0.8)
+    
+    imagebutton:
+        idle "gui/mm_quit_idle.png"
+        hover "gui/mm_quit_hover.png"
+        action Quit(confirm=True)
+        align (0.2, 0.9)
+
+
     ## The use statement includes another screen inside this one. The actual
     ## contents of the main menu are in the navigation screen.
-    use navigation
+    # use navigation
 
     if gui.show_name:
 
@@ -385,7 +416,7 @@ style main_menu_frame:
     xsize 420
     yfill True
 
-    background "gui/overlay/main_menu.png"
+    # background "gui/overlay/confirm.png"
 
 style main_menu_vbox:
     xalign 1.0

@@ -30,6 +30,37 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
+    Credit
+
+    Project Manager: Shofiya Salmanisa Azmi — 17223009
+
+    Game Designer:\n
+    \t- Feren Ferinawati – 10523092\n
+    \t- A A Istri Arynda Pradnya Suary – 14420027
+
+    Script Writer:\n
+    \t- Sacha Annisa Rizky – 10523088\n
+    \t- Yolanda Crispina Tamba — 10523046\n
+    \t- Salimah Fitri'aeni R — 10523074
+
+    Programmer:\n 
+    \t- Nabilah Sintia Dewi — 17223012\n 
+    \t- Wildan Malik Fajar — 12222006
+
+    Graphic Designer:\n
+    \t- Raissa Nadhifa Azaria — 17023028\n
+    \t- Kanahaya Gustiana Kinanti — 17323056\n
+    \t- Farah Shafiyyah — 17323042
+
+    UI/UX Designer: Nabilah Sintia Dewi — 17223012
+
+    Sound Designer/Composer: Adinda Riski Fitriani — 10523004
+
+    Quality Assurance (QA) Tester:\n
+    \t- Anugerah Sindi Aulia — 10523061\n
+    \t- Aurel Zalfa Prilia — 10523011
+
+    Publication Specialist: Elgita Hendriani Habibillah – 10523085\n
 """)
 
 
