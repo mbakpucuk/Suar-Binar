@@ -7,12 +7,12 @@ define k = Character("Bapak Kos", color="#52445b", image='bapakkos')
 define a = Character("???", color="#52445b", image='binar')
 define b = Character("Binar", color="#52445b", image='binar')
 
-image side putri happy = im.Scale("images/side putri happy.png", 657, 855, xoffset=-180, yoffset=100)
-image side putri mikir = im.Scale("images/side putri mikir.png", 657, 855, xoffset=-180, yoffset=100)
-image side putri confused = im.Scale("images/side putri confused.png", 657, 855, xoffset=-180, yoffset=100)
-image side putri cry = im.Scale("images/side putri cry.png", 657, 855, xoffset=-180, yoffset=100)
-image side putri neutral = im.Scale("images/side putri neutral.png", 657, 855, xoffset=-180, yoffset=100)
-image side putri smile = im.Scale("images/side putri smile.png", 657, 855, xoffset=-180, yoffset=100)
+image side putri happy = im.Scale("images/side putri happy.png", 657, 855, xoffset=-100, yoffset=100)
+image side putri mikir = im.Scale("images/side putri mikir.png", 657, 855, xoffset=-100, yoffset=100)
+image side putri confused = im.Scale("images/side putri confused.png", 657, 855, xoffset=-100, yoffset=100)
+image side putri cry = im.Scale("images/side putri cry.png", 657, 855, xoffset=-100, yoffset=100)
+image side putri neutral = im.Scale("images/side putri neutral.png", 657, 855, xoffset=-100, yoffset=100)
+image side putri smile = im.Scale("images/side putri smile.png", 657, 855, xoffset=-10, yoffset=100)
 
 # NVL characters are used for the phone texting
 define p_nvl = Character("Putri", kind=nvl, image="putri", callback=Phone_SendSound)
@@ -24,6 +24,7 @@ define config.nvl_adv_transition = Dissolve(0.3)
 label start:
 
     scene bg kamar pagi
+    #play sound "suara ayam"
     play sound "pagihari.mp3"
     "Embun pagi yang dingin tidak bisa mengganggu tidur nyenyak Putri yang sedang tergulung di dalam selimutnya, justru hawa dingin itu membuatnya semakin tenggelam dalam pulasnya tidur di hari Minggu."
     "Para embun sudah mulai beranjak, digantikan oleh sinar matahari pagi yang berusaha menembus tirai kamar Putri."
@@ -32,6 +33,7 @@ label start:
     i "Putri, bangun nak, ini udah siang lho!"
     hide ibu
 
+    #play sound "nyibak selimut"
     "Seketika Putri terbangun. Kepalanya sedikit pusing karena dibangunkan dengan tiba-tiba."
     "Faktanya, jam dinding di hadapan Putri menunjukkan pukul 6 lewat, masih pagi sekali untuk bangun di hari libur seperti ini."
     "Dengan malas, Putri melangkah untuk membukakan pintu."
@@ -73,6 +75,7 @@ label choice_2a:
     "Putri mengambil jaketnya dan berjalan keluar rumah dengan wajah kesal. Selagi melangkah, ia melirik helm yang sedang tergantung. Di benaknya terpikirkan apa ia harus mengenakannya atau tidak."
 
     scene teras
+    with Dissolve (.5)
     menu:
         "Gunakan helm":
             jump choice_1b
@@ -81,15 +84,18 @@ label choice_2a:
 
 label choice_1b:
     "Setelah memakai jaket, Putri mengambil helm dari gantungan dan mengenakannya sebelum ke menyalakan motornya."
+    #play sound "cetekin helm.mp3"
     p "(Pakai helm itu penting. Nggak cuma soal aturan, tapi buat keselamatan.)"
     p "(Kalau terjadi apa-apa di jalan, setidaknya kepala terlindungi.)"
     "Ia mengecek kembali tali helm untuk memastikan terpasang dengan benar."
     p "(Kadang orang mikir dekat nggak perlu helm, tapi kecelakaan nggak lihat jarak. Lebih baik aman daripada menyesal.)"
+    #play sound "suara motor ngeng.mp3"
     "Putri menyalakan motor dan melaju ke pasar dengan hati-hati, memastikan dirinya tetap patuh pada aturan lalu lintas."
     jump pasaran
 
 label choice_2b:
     p "(Ah, cuma ke pasar, nggak jauh ini. Lagian nggak ada polisi juga, aman kok.)"
+    #play sound "suara motor.mp3"
     "Ia menyalakan motor dan melaju."
     "Di tengah perjalanan, tiba-tiba seorang polisi menghentikannya di pos jalan."
     show polisi
@@ -106,12 +112,13 @@ label choice_2b:
     p "Iya, Pak. Terima kasih, ya."
     "Mereka berdua tahu apa yang telah dilakukan salah. Namun bukankah hal tersebut sudah wajar dilakukan di lingkungan sekitarnya?" 
     "Terjadi perdebatan kecil di kepala Putri. Namun ia memutuskan untuk mengabaikannya dan melanjutkan tugasnya di pasar."
+    #play sound "suara motor lagi.mp3"
     jump pasaran
 
 label pasaran:
 
     scene pasar
-    #play sound 
+    #play sound "suara berisik pasar.mp3"
     "Sesampainya di lokasi, Putri tidak sengaja mendengar percakapan antara ibu-ibu yang juga berbelanja sayur."
     show ibupasar at left
     show ibupasar at right
@@ -132,7 +139,7 @@ label choice_1c:
     "Putri memilih diam ketika mendengar gosip tersebut, melanjutkan belanja dan langsung bergegas keluar dari keramaian."
     p "(Kenapa sih mereka ngomongin orang kayak gitu? Rasanya nggak enak banget didengar.)"
     p "(Tapi aku juga nggak berani bilang apa-apa. Mereka kan lebih tua dariku.)"
-    show jalan
+    scene jalan
     "Putri menyalakan motornya dan mulai perjalanan pulang. Angin pagi membelai lembut wajahnya, tetapi pikirannya tetap gelisah."
     p "(Harusnya aku ngomong sesuatu tadi. Tapi gimana caranya ngomong ke orang yang lebih tua tanpa bikin mereka marah atau tersinggung? Aku cuma diem aja, rasanya salah juga...)"
     "Ia melaju pelan, merenungkan kejadian tersebut."
@@ -172,16 +179,64 @@ label rumahkamar:
     r_nvl "Boleh, aku siap-siap dulu ya, nanti aku jemput kamu."
     
     scene cafe
+    #play sound "romantis lah ni lagu.mp3"
+    p "Reza, senang banget akhirnya bisa ketemu lagi. Udah lama ya kita nggak ngobrol."
+    show reza
+    r "Iya, aku juga senang. Maaf ya, akhir-akhir ini aku sibuk banget karena kuliah dan kerja paruh waktu... rasanya nggak ada waktu buat diri sendiri."
+    p "Aku ngerti kok, pasti berat ya."
+    p "Ngomong-ngomong tadi aku tidak sengaja menyimak percakapan ibu-ibu yang sedang belanja di pasar tadi pagi dan sepertinya mereka membicarakan gosip tentang ibumu."
+    r "Mereka bilang apa, Put?"
+    p "Katanya, ibumu baru saja membeli barang yang mahal."
+    r "Ternyata beritanya sudah tersebar ya? Sebenarnya Ibu baru saja membeli jam tangan bermerek."
+    r "ah, Ibu memang selalu begitu, manajemen keuangannya sangat buruk dan terlalu mementingkan gaya dan tren mewah terkini, tak jarang ia berhutang dan melakukan pinjol sana sini, Bapak pun sama saja."
+    r "Makanya aku berinisiatif mencari uang sendiri untuk biaya kuliahku."
+    r "Kau tau kan biaya kuliah saat ini semakin tidak masuk akal, bahkan untuk kampus negeri, biayanya sudah seperti di kampus swasta."
+    "Wajah Reza tersenyum, namun Putri tahu bahwa Reza saat ini sedang tidak baik-baik saja. Ia tidak ingin melihat Reza jadi makin kesusahan karenanya."
+    p "Reza, kamu nggak perlu khawatir. Hari ini aku yang traktir makan, ya. Aku ngerti kok kalau kamu lagi susah, biar aku bantu sedikit."
+    r "Eh, ga usah Put. Kamu juga kan nggak bisa terus-terusan bantu aku."
+    r "Aku ngerti kok kalau kondisi aku lagi nggak gampang, tapi aku juga nggak mau kamu ngerasa terbebani. Aku bisa kok bayar sendiri, biar aku yang tanggung jawab."
+
     menu:
         "Biarkan Reza membayar":
             jump choice_1d
         "Bayar makanannya":
             jump choice_2d
 
-
 label choice_1d:
-    p "."
+    p "Tapi, Reza, kamu kan lagi susah, dan aku bisa bantu. Aku nggak masalah kok."
+    r "Putri, aku tau niat kamu baik, tapi aku juga nggak mau kamu terlalu khawatir. Kalau kita terus menerus saling bantu tanpa ada pengertian, malah jadi masalah."
+    r "Aku janji, semuanya bisa diatasi. Aku nggak akan biarkan keadaan ini terus menghalangi kita."
+    "Putri terdiam sejenak, merasa lega mendengar kata-kata Reza."
+    p "Iya, Reza. Aku ngerti. Terima kasih ya, udah bikin aku lebih tenang. Kita memang harus saling support, tapi jangan sampai ada yang merasa terbebani."
+    r "Betul banget, kita hadapi ini bareng-bareng. Nggak usah khawatir. Kita akan terus berjalan bersama, oke?"
+    p "Oke, Reza."
+    "Mereka berdua saling bertukar senyum, merasa lebih nyaman setelah berbicara terbuka dan mencari solusi bersama."
+    jump kosan
 
+label choice_2d:
+    "Tanpa mendengarkan kata-kata Reza, Putri bergegas menuju kasir."
+    "Reza telat menyadarinya dan ketika ia sampai di kasir, transaksinya sudah selesai."
+    r "Aduh, kamu nggak perlu repot-repot, aku jadi ngerasa nggak enak."
+    p "Gapapa Reza, aku seneng bisa bantu pacar aku."
+    r "Terima kasih banyak ya, Put. Aku nggak tau harus bilang apa lagi, kamu baik banget."
+    "Putri merasa senang karena bisa membantu Reza meskipun ia tahu ini melawan norma dan kultur sosial ketika biasanya laki-laki yang membayar saat kencan."
+    p "(Yah memang ini bukan hal yang biasa, tapi rasanya senang bisa membantu.)"
+    jump kosan
+
+
+label kosan:
+    scene kos
+    "Mereka menghabiskan waktu di kos Reza untuk membahas lebih lanjut bahasan mereka tadi."
+    "Reza lebih memilih tinggal di kos-kosan daripada harus bolak balik dari kampus ke rumahnya yang berjarak kurang lebih 30 km dari kampusnya, padahal saat SMP dia tinggal di daerah sekitar kampusnya sekarang."
+    "Lokasi kos-kosan ini berdempetan dengan rumah warga, menjadikan lingkungan sekitarnya selalu ramai oleh aktivitas warga sekitar."
+    "Selain itu, pemilik kosan putra ini cukup ketat dan galak dengan peraturan yang tidak mengizinkan adanya tamu perempuan kecuali keluarga yang bersangkutan."
+    "Meskipun begitu, Reza tidak begitu mengindahkan dan tetap mengajak pacarnya ke kamar kos tanpa memberitahu Putri tentang kondisi kosnya tersebut."
+    "Mereka berdua pun duduk di tempat tidur dan mengobrol tentang banyak hal lainnya selama hampir 2 jam."
+    #play sound "sfx nya pintu digedor"
+    #nanti ada transisi yang duar gt
+    "Tak lama kemudian, terdengar ketukan pintu yang cukup keras."
+    "Reza mengintip dari jendela dan mendapati bapak pemilik kosan sedang mengetuk pintu kosnya dengan wajah serius."
+    "Dengan panik Reza menyuruh Putri untuk sembunyi di bawah kasur."
 
 
     #transform alpha_dissolve:
