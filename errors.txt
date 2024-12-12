@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/options.rpy", line 214: expected statement.
-    window:
-          ^
+File "game/script.rpy", line 441: Line is indented, but the preceding say statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    menu:
+    ^
 
-Ren'Py Version: Ren'Py 8.3.3.24111502
-Tue Dec 10 21:38:59 2024
+Ren'Py Version: Ren'Py 8.3.2.24090901
+Thu Dec 12 10:39:47 2024
