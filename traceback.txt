@@ -1,50 +1,34 @@
 ﻿I'm sorry, but an uncaught exception occurred.
 
-While loading <renpy.display.im.Image object ('gui/mm_save_cover.png') at 0x0000000005781250>:
-  File "renpy/common/00action_menu.rpy", line 117, in __call__
-    raise Exception("%r is not a screen or a label." % orig_screen)
-Exception: 'options' is not a screen or a label.
+While running game code:
+  File "renpy/common/00start.rpy", line 241, in script call
+    call _splashscreen from _call_splashscreen_1
+  File "game/script.rpy", line 39, in script
+    hide text with Dissolve
+Exception: Expected transition to return a displayable, not a <partial <class 'renpy.display.transition.Dissolve'> () {'old_widget': <renpy.display.layout.Fixed object at 0x00000000059a8220>, 'new_widget': <renpy.display.layout.Fixed object at 0x00000000059a8ac0>}>
 
 -- Full Traceback ------------------------------------------------------------
 
 Full traceback:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in script
-    python hide:
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\ast.py", line 821, in execute
-    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\python.py", line 1178, in py_exec_bytecode
-    exec(bytecode, globals, locals)
-  File "renpy/common/_layout/screen_main_menu.rpym", line 28, in <module>
-    python hide:
-  File "renpy/common/_layout/screen_main_menu.rpym", line 35, in _execute_python_hide
-    ui.interact()
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\ui.py", line 301, in interact
-    rv = renpy.game.interface.interact(roll_forward=roll_forward, **kwargs)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\core.py", line 2215, in interact
+  File "renpy/common/00start.rpy", line 241, in script call
+    call _splashscreen from _call_splashscreen_1
+  File "game/script.rpy", line 39, in script
+    hide text with Dissolve
+  File "D:\renpy-8.3.2-sdk\renpy\ast.py", line 1361, in execute
+    renpy.exports.with_statement(trans, paired=paired)
+  File "D:\renpy-8.3.2-sdk\renpy\exports\statementexports.py", line 257, in with_statement
+    return renpy.game.interface.do_with(trans, paired, clear=clear)
+  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 1578, in do_with
+    return self.interact(trans_pause=True,
+  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2215, in interact
     repeat, rv = self.interact_core(preloads=preloads, trans_pause=trans_pause, pause=pause, pause_start=pause_start, pause_modal=pause_modal, **kwargs) # type: ignore
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\core.py", line 3286, in interact_core
-    rv = root_widget.event(ev, x, y, 0)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\screen.py", line 793, in event
-    rv = self.child.event(ev, x, y, st)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\layout.py", line 1297, in event
-    rv = i.event(ev, x - xo, y - yo, cst)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\behavior.py", line 1182, in event
-    return handle_click(self.clicked)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\behavior.py", line 1103, in handle_click
-    rv = run(action)
-  File "C:\Users\user\RenPy\renpy-8.3.3-sdk\renpy\display\behavior.py", line 401, in run
-    return action(*args, **kwargs)
-  File "renpy/common/00action_menu.rpy", line 117, in __call__
-    raise Exception("%r is not a screen or a label." % orig_screen)
-Exception: 'options' is not a screen or a label.
+  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2666, in interact_core
+    trans = instantiate_transition(None, old_root, layers_root)
+  File "D:\renpy-8.3.2-sdk\renpy\display\core.py", line 2580, in instantiate_transition
+    raise Exception("Expected transition to return a displayable, not a {!r}".format(trans))
+Exception: Expected transition to return a displayable, not a <partial <class 'renpy.display.transition.Dissolve'> () {'old_widget': <renpy.display.layout.Fixed object at 0x00000000059a8220>, 'new_widget': <renpy.display.layout.Fixed object at 0x00000000059a8ac0>}>
 
-Windows-10-10.0.19045 AMD64
-Ren'Py 8.3.3.24111502
+Windows-10-10.0.22631 AMD64
+Ren'Py 8.3.2.24090901
 Suar Binar 1.0
-Tue Dec 10 22:20:55 2024
+Tue Dec 17 20:34:29 2024

@@ -30,9 +30,9 @@ define config.version = "1.0"
 ## triple-quotes, and leave a blank line between paragraphs.
 
 define gui.about = _p("""
-    Credit
-
-    Project Manager: Shofiya Salmanisa Azmi — 17223009
+    
+    Project Manager and Cover Artist:\n 
+    \t- Shofiya Salmanisa Azmi — 17223009
 
     Game Designer:\n
     \t- Feren Ferinawati – 10523092\n
@@ -52,15 +52,18 @@ define gui.about = _p("""
     \t- Kanahaya Gustiana Kinanti — 17323056\n
     \t- Farah Shafiyyah — 17323042
 
-    UI/UX Designer: Nabilah Sintia Dewi — 17223012
+    UI/UX Designer:\n
+    \t- Nabilah Sintia Dewi — 17223012
 
-    Sound Designer/Composer: Adinda Riski Fitriani — 10523004
+    Sound Designer/Composer:\n
+    \t- Adinda Riski Fitriani — 10523004
 
     Quality Assurance (QA) Tester:\n
     \t- Anugerah Sindi Aulia — 10523061\n
     \t- Aurel Zalfa Prilia — 10523011
 
-    Publication Specialist: Elgita Hendriani Habibillah – 10523085\n
+    Publication Specialist:\n
+    \t- Elgita Hendriani Habibillah – 10523085\n
 """)
 
 
@@ -93,7 +96,7 @@ define config.has_voice = True
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/main menu.ogg"
 
 
 ## Transitions #################################################################
