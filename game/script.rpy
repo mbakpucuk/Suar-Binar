@@ -253,6 +253,7 @@ label rumahkamar:
     play music "cafe.mp3"
     p happy "Reza, senang banget akhirnya bisa ketemu lagi. Udah lama ya kita nggak ngobrol."
     show reza smile kacamata
+    with Dissolve(1.0)
     r "Iya, aku juga senang. Maaf ya, akhir-akhir ini aku sibuk banget karena kuliah dan kerja paruh waktu... rasanya nggak ada waktu buat diri sendiri."
     p smile "Aku ngerti kok, pasti berat ya."
     p "Ngomong-ngomong tadi aku tidak sengaja menyimak percakapan ibu-ibu yang sedang belanja di pasar tadi pagi dan sepertinya mereka membicarakan gosip tentang ibumu."
@@ -318,6 +319,7 @@ label kosan:
     "Putri langsung menurut tanpa begitu mengerti apa yang terjadi. Reza kemudian membuka setengah pintu."
     scene bg kos reza terang
     show bapakkos
+    with Dissolve(1.0)
     k "Ini saya lihat daritadi ada sandal perempuan di depan kamar kamu. Anak di sebelah tadi juga lapor ke bapak kalo kamar kamu berisik dan dia dengar suara perempuan. Kamu bawa pacar ke kamar ya, hah?"
     "Suara bapak kos yang cukup lantang itu didengar oleh warga sekitar, memancing keingintahuan mereka."
     play sound "bisik.mp3"
@@ -346,6 +348,7 @@ label kosan:
     #nanti layar goyang
     "Tak mampu membendung amarahnya, beliau lantas memukul Reza hingga terjatuh ke lantai."
     hide bapakkos
+    with Dissolve(1.0)
     play sound "gaspbareng.mp3"
     "Beberapa warga yang semula hanya menyaksikan dari depan kamar, kini juga ikut main hakim sendiri dengan mencaci maki Reza dan Putri."
     play sound "bisik.mp3"
@@ -389,13 +392,18 @@ label kosan:
     show tetangganpcfour
     v "Sudah, berhenti! Kalian ini mau bikin rusuh apa? Apa yang kalian lakukan ini tidak benar!"
     hide tetangganpcfour
+    with Dissolve(1.0)
     "Mereka akhirnya mundur dan pergi dengan ekspresi mencibir, sementara Reza tergeletak di lantai, lebam di seluruh wajahnya. Sedikit darah mengalir dari sudut bibirnya dan seketika tidak sadarkan diri."
     show reza babak belur at left
+    with Dissolve(1.0)
     show tetangganpcfour at right
+    with Dissolve(1.0)
     v "Pak! Apa yang sudah bapak lakukan? Bagaimanapun dia tetap penghuni kos bapak yang harus bapak jaga, bukan malah menyakitinya seperti ini! Cepat bawa dia ke rumah sakit!"
     v "Kamu, pacarnya, cepatlah langsung pulang!"
     hide reza babak belur
+    with Dissolve(1.0)
     hide tetangganpcfour
+    with Dissolve(1.0)
     "Putri hanya bisa berdiri terpaku, matanya berkaca-kaca, tetapi ia mengangguk dan cepat-cepat pulang."
     "Saat itu yang dipikirkannya hanya nama baiknya dan berharap orang tuanya tidak mendengar kabar ini, tanpa terpikir atau peduli bagaimana nasib Reza setelah ini."
     stop music
